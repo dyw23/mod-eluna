@@ -1221,7 +1221,7 @@ namespace LuaUnit
      */
     int GetFaction(lua_State* L, Unit* unit)
     {
-#ifdef TRINITY
+#ifdef TRINITY || AZEROTHCORE
         Eluna::Push(L, unit->GetFaction());
 #else
         Eluna::Push(L, unit->getFaction());
