@@ -1553,7 +1553,7 @@ namespace LuaUnit
     int SetFaction(lua_State* L, Unit* unit)
     {
         uint32 factionId = Eluna::CHECKVAL<uint32>(L, 2);
-#ifdef TRINITY
+#ifdef TRINITY || AZEROTH
         unit->SetFaction(factionId);
 #else
         unit->setFaction(factionId);
