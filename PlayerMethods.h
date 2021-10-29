@@ -2268,7 +2268,7 @@ namespace LuaPlayer
     {
         Unit* unit = Eluna::CHECKOBJ<Unit>(L, 2);
 
-#ifdef TRINITY || AZEROTHCORE
+#if defined TRINITY || AZEROTHCORE
         AuctionHouseEntry const* ahEntry = AuctionHouseMgr::GetAuctionHouseEntry(unit->GetFaction());
 #else
         AuctionHouseEntry const* ahEntry = AuctionHouseMgr::GetAuctionHouseEntry(unit);
