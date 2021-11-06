@@ -12,6 +12,7 @@
 #ifdef AZEROTHCORE
 
 #include "BanMgr.h"
+#include "GameLocale.h"
 
 enum BanMode
 {
@@ -410,6 +411,8 @@ namespace LuaGlobalFunctions
         if (locale >= TOTAL_LOCALES)
             return luaL_argerror(L, 2, "valid LocaleConstant expected");
 
+#ifndef AZEROTHCORE
+
         const ItemTemplate* temp = eObjectMgr->GetItemTemplate(entry);
         if (!temp)
             return luaL_argerror(L, 1, "valid ItemEntry expected");
@@ -427,6 +430,10 @@ namespace LuaGlobalFunctions
             "0:0:0:0|h[" << name << "]|h|r";
 
         Eluna::Push(L, oss.str());
+#else
+        Eluna::Push(L, sGameLocale->GetItemLink(entry, locale));
+#endif
+
         return 1;
     }
 

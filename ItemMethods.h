@@ -7,6 +7,10 @@
 #ifndef ITEMMETHODS_H
 #define ITEMMETHODS_H
 
+#ifdef AZEROTHCORE
+#include "GameLocale.h"
+#endif
+
 /***
  * Inherits all methods from: [Object]
  */
@@ -265,8 +269,14 @@ namespace LuaItem
 
         const ItemTemplate* temp = item->GetTemplate();
         std::string name = temp->Name1;
+
+#ifndef AZEROTHCORE
         if (ItemLocale const* il = eObjectMgr->GetItemLocale(temp->ItemId))
             ObjectMgr::GetLocaleString(il->Name, static_cast<LocaleConstant>(locale), name);
+#else
+        if (ItemLocale const* il = sGameLocale->GetItemLocale(temp->ItemId))
+            GameLocale::GetLocaleString(il->Name, static_cast<LocaleConstant>(locale), name);
+#endif
 
 #ifndef CLASSIC
         if (int32 itemRandPropId = item->GetItemRandomPropertyId())
