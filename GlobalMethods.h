@@ -2413,7 +2413,7 @@ namespace LuaGlobalFunctions
 #ifndef AZEROTHCORE
             sTaxiPathNodesByPath[pathId].set(index++, new TaxiPathNodeEntry(entry));
 #else
-            sTaxiPathNodesByPath[pathId][index++] = new TaxiPathNodeEntry(entry);
+            sTaxiPathNodesByPath[pathId][index++] = entry;
 #endif
 #endif
         }
