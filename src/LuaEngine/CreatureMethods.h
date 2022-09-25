@@ -860,7 +860,7 @@ namespace LuaCreature
 #if defined(TRINITY)
         auto const& threatlist = creature->GetThreatManager().GetThreatenedByMeList();
 #elif defined(AZEROTHCORE)
-auto const& threatlist = creature->GetThreatMgr().getThreatList();
+auto const& threatlist = creature->GetThreatMgr().GetThreatList();
 #else
         ThreatList const& threatlist = creature->GetThreatManager().getThreatList();
 #endif
