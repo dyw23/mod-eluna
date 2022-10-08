@@ -2824,7 +2824,7 @@ namespace LuaUnit
 #elif AZEROTHCORE
         if (!spell)
         {
-            DamageInfo dmgInfo(unit, target, damage, nullptr, schoolmask, SPELL_DIRECT_DAMAGE);
+            DamageInfo dmgInfo(unit, target, damage, nullptr, schoolmask, SPELL_DIRECT_DAMAGE, BASE_ATTACK);
             unit->CalcAbsorbResist(dmgInfo);
 
             if (!dmgInfo.GetDamage())
