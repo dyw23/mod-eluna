@@ -4199,5 +4199,45 @@ namespace LuaPlayer
     player->RemovePet(player->GetPet(), (PetSaveMode)mode, returnreagent);
     return 0;
     }*/
+
+    /**
+     * Starts a spell cooldown for the [Player]
+     *
+     * @param uint32 SpellId : Spell Id to add cooldown to.
+     * @param uint32 Cooldown : The amount of milliseconds the Spell will be on cooldown for.
+     * @param bool SendToClient = true : Send cooldown packet to the client.
+     * @param uint32 ItemId = 0 : Item Id if the spell was used from an item.
+     * @param bool ForceSendToSpectators = false : Should the cooldown packet be force sent to spectators.
+     */
+    int AddSpellCooldown(lua_State* L, Player* player)
+    {
+#ifdef AZEROTHCORE
+        uint32 spellId = Eluna::CHECKVAL<uint32>(L, 2);
+        uint32 cooldown = Eluna::CHECKVAL<uint32>(L, 3) * IN_MILLISECONDS;
+        bool sendToClient = Eluna::CHECKVAL<bool>(L, 4, true);
+        uint32 itemId = Eluna::CHECKVAL<uint32>(L, 5, 0);
+        bool forceSendToSpectators = Eluna::CHECKVAL<bool>(L, 6, false);
+
+        player->AddSpellCooldown(spellId, itemId, cooldown, sendToClient, forceSendToSpectators);
+#endif
+        return 0;
+    }
+
+    /**
+     * Modifys a spell cooldown for the [Player]
+     *
+     * @param uint32 SpellId : Spell Id to add cooldown to.
+     * @param int32 Cooldown : The amount of milliseconds the Spell cooldown will be changed by.
+     */
+    int ModifySpellCooldown(lua_State* L, Player* player)
+    {
+#ifdef AZEROTHCORE
+        uint32 spellId = Eluna::CHECKVAL<uint32>(L, 2);
+        int32 cooldown = Eluna::CHECKVAL<int32>(L, 3) * IN_MILLISECONDS;
+
+        player->ModifySpellCooldown(spellId, cooldown);
+#endif
+        return 0;
+    }
 };
 #endif

@@ -766,6 +766,8 @@ ElunaRegister<Player> PlayerMethods[] =
     { "ResetHonor", &LuaPlayer::ResetHonor },
     { "ClearHonorInfo", &LuaPlayer::ClearHonorInfo },
 #endif
+    { "AddSpellCooldown", &LuaPlayer::AddSpellCooldown },
+    { "ModifySpellCooldown", &LuaPlayer::ModifySpellCooldown },
 
     { NULL, NULL }
 };
