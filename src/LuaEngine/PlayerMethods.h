@@ -4206,7 +4206,7 @@ namespace LuaPlayer
      * @param uint32 SpellId : Spell Id to add cooldown to.
      * @param uint32 Cooldown : The amount of milliseconds the Spell will be on cooldown for.
      * @param bool SendToClient = true : Send cooldown packet to the client.
-     * @param uint32 ItemId = 0 : Item Id if the spell was used from an item.
+     * @param ObjectGuid ItemGuid = 0 : Item Guid if the spell is attached to an item.
      * @param bool ForceSendToSpectators = false : Should the cooldown packet be force sent to spectators.
      */
     int AddSpellCooldown(lua_State* L, Player* player)
@@ -4215,16 +4215,30 @@ namespace LuaPlayer
         uint32 spellId = Eluna::CHECKVAL<uint32>(L, 2);
         uint32 cooldown = Eluna::CHECKVAL<uint32>(L, 3) * IN_MILLISECONDS;
         bool sendToClient = Eluna::CHECKVAL<bool>(L, 4, true);
-        uint32 itemId = Eluna::CHECKVAL<uint32>(L, 5, 0);
-        bool forceSendToSpectators = Eluna::CHECKVAL<bool>(L, 6, false);
+        bool forceSendToSpectators = Eluna::CHECKVAL<bool>(L, 5, false);
+        ObjectGuid itemGuid = Eluna::CHECKVAL<ObjectGuid>(L, 6, ObjectGuid());
+        Item* cdItem = player->GetItemByGuid(itemGuid);
+        player->AddSpellCooldown(spellId, cdItem ? cdItem->GetEntry() : 0, cooldown, sendToClient, forceSendToSpectators);
+        if (sendToClient)
+        {
+            WorldPacket spellCooldownPacket;
+            player->BuildCooldownPacket(spellCooldownPacket, SPELL_COOLDOWN_FLAG_NONE, spellId, cooldown);
+            player->GetSession()->SendPacket(&spellCooldownPacket);
 
-        player->AddSpellCooldown(spellId, itemId, cooldown, sendToClient, forceSendToSpectators);
+            if (cdItem)
+            {
+                WorldPacket itemCooldownPacket(SMSG_ITEM_COOLDOWN, 12);
+                itemCooldownPacket << cdItem->GetGUID();
+                itemCooldownPacket << spellId;
+                player->GetSession()->SendPacket(&itemCooldownPacket);
+            }
+        }
 #endif
         return 0;
     }
 
     /**
-     * Modifys a spell cooldown for the [Player]
+     * Modifys a spell cooldown for the [Player] if a cooldown for the spell exists.
      *
      * @param uint32 SpellId : Spell Id to add cooldown to.
      * @param int32 Cooldown : The amount of milliseconds the Spell cooldown will be changed by.
