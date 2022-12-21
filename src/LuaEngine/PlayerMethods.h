@@ -4247,7 +4247,7 @@ namespace LuaPlayer
     {
 #ifdef AZEROTHCORE
         uint32 spellId = Eluna::CHECKVAL<uint32>(L, 2);
-        int32 cooldown = Eluna::CHECKVAL<int32>(L, 3) * IN_MILLISECONDS;
+        int32 cooldown = Eluna::CHECKVAL<int32>(L, 3);
 
         player->ModifySpellCooldown(spellId, cooldown);
 #endif
