@@ -4213,7 +4213,7 @@ namespace LuaPlayer
     {
 #ifdef AZEROTHCORE
         uint32 spellId = Eluna::CHECKVAL<uint32>(L, 2);
-        uint32 cooldown = Eluna::CHECKVAL<uint32>(L, 3) * IN_MILLISECONDS;
+        uint32 cooldown = Eluna::CHECKVAL<uint32>(L, 3);
         bool sendToClient = Eluna::CHECKVAL<bool>(L, 4, true);
         bool forceSendToSpectators = Eluna::CHECKVAL<bool>(L, 5, false);
         ObjectGuid itemGuid = Eluna::CHECKVAL<ObjectGuid>(L, 6, ObjectGuid());
@@ -4238,7 +4238,7 @@ namespace LuaPlayer
     }
 
     /**
-     * Modifys a spell cooldown for the [Player] if a cooldown for the spell exists.
+     * Modifys a spell cooldown for the [Player] if the player has a cooldown for the spell.
      *
      * @param uint32 SpellId : Spell Id to add cooldown to.
      * @param int32 Cooldown : The amount of milliseconds the Spell cooldown will be changed by.
