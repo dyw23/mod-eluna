@@ -3332,15 +3332,20 @@ namespace LuaGlobalFunctions
      * 0 = Alliance
      * 1 = Horde
      *
+     * 600 = slider max Alliance
+     * -600 = slider max Horde
+     *
      * @return int16 the ID of the team to own Halaa
+     * €@return float the slider position.
      */
     int GetOwnerHalaa(lua_State* L)
     {
         OutdoorPvPNA* nagrandPvp = (OutdoorPvPNA*)sOutdoorPvPMgr->GetOutdoorPvPToZoneId(3518);
         OPvPCapturePointNA* halaa = nagrandPvp->GetCapturePoint();
         Eluna::Push(L, halaa->GetControllingFaction());
+        Eluna::Push(L, halaa->GetSlider());
 
-        return 1;
+        return 2;
     }
 
     /**
@@ -3360,12 +3365,16 @@ namespace LuaGlobalFunctions
         if (teamId == 0)
         {
             halaa->FactionTakeOver(TEAM_ALLIANCE);
-            halaa->m_value = 1024;
+            halaa->SetSlider(599);
         }
         else if (teamId == 1)
         {
             halaa->FactionTakeOver(TEAM_HORDE);
-            halaa->m_value = -1024;
+            halaa->SetSlider(-599);
+        }
+        else
+        {
+            return luaL_argerror(L, 1, "0 for Alliance or 1 for Horde expected");
         }
 
         return 0;
