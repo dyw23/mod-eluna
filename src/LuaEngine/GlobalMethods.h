@@ -13,6 +13,9 @@
 
 #include "BanMgr.h"
 #include "GameTime.h"
+#include "SharedDefines.h"
+#include "OutdoorPvPMgr.h"
+#include "../../../../src/server/scripts/OutdoorPvP/OutdoorPvPNA.h"
 
 enum BanMode
 {
@@ -3322,5 +3325,51 @@ namespace LuaGlobalFunctions
 
         return 0;
     }
+
+    #ifdef AZEROTHCORE
+    /**
+     * Gets the faction which is the current owner of Halaa in Nagrand
+     * 0 = Alliance
+     * 1 = Horde
+     *
+     * @return int16 the ID of the team to own Halaa
+     */
+    int GetOwnerHalaa(lua_State* L)
+    {
+        OutdoorPvPNA* nagrandPvp = (OutdoorPvPNA*)sOutdoorPvPMgr->GetOutdoorPvPToZoneId(3518);
+        OPvPCapturePointNA* halaa = nagrandPvp->GetCapturePoint();
+        Eluna::Push(L, halaa->GetControllingFaction());
+
+        return 1;
+    }
+
+    /**
+     * Sets the owner of Halaa in Nagrand to the respective faction
+     * 0 = Alliance
+     * 1 = Horde
+     *
+     * @param uint16 teamId : the ID of the team to own Halaa
+     */
+    int SetOwnerHalaa(lua_State* L)
+    {
+        uint16 teamId = Eluna::CHECKVAL<uint16>(L, 1);
+
+        OutdoorPvPNA* nagrandPvp = (OutdoorPvPNA*)sOutdoorPvPMgr->GetOutdoorPvPToZoneId(3518);
+        OPvPCapturePointNA* halaa = nagrandPvp->GetCapturePoint();
+
+        if (teamId == 0)
+        {
+            halaa->FactionTakeOver(TEAM_ALLIANCE);
+            halaa->m_value = 1024;
+        }
+        else if (teamId == 1)
+        {
+            halaa->FactionTakeOver(TEAM_HORDE);
+            halaa->m_value = -1024;
+        }
+
+        return 0;
+    }
+    #endif
 }
 #endif
