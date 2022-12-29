@@ -3332,8 +3332,8 @@ namespace LuaGlobalFunctions
      * 0 = Alliance
      * 1 = Horde
      *
-     * 1024 = slider max Alliance
-     * -1024 = slider max Horde
+     * 600 = slider max Alliance
+     * -600 = slider max Horde
      *
      * @return int16 the ID of the team to own Halaa
      * @return float the slider position.
