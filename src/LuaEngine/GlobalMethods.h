@@ -3332,11 +3332,11 @@ namespace LuaGlobalFunctions
      * 0 = Alliance
      * 1 = Horde
      *
-     * 600 = slider max Alliance
-     * -600 = slider max Horde
+     * 1024 = slider max Alliance
+     * -1024 = slider max Horde
      *
      * @return int16 the ID of the team to own Halaa
-     * €@return float the slider position.
+     * @return float the slider position.
      */
     int GetOwnerHalaa(lua_State* L)
     {
@@ -3364,12 +3364,10 @@ namespace LuaGlobalFunctions
 
         if (teamId == 0)
         {
-            halaa->FactionTakeOver(TEAM_ALLIANCE);
             halaa->SetSlider(599);
         }
         else if (teamId == 1)
         {
-            halaa->FactionTakeOver(TEAM_HORDE);
             halaa->SetSlider(-599);
         }
         else
