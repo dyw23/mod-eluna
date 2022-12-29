@@ -91,7 +91,7 @@ Eluna API for AC:
 - Added `Group:GetGroupType()`: https://github.com/azerothcore/mod-eluna/pull/82
 
 ### Unit
-- Added `ModifyThreatPct()`: https://github.com/azerothcore/mod-eluna/pull/25
+- Added `Unit:ModifyThreatPct()`: https://github.com/azerothcore/mod-eluna/pull/25
 
 ### GameObject
 - Added `GameObject:AddLoot()` to add loot at runtime to an **empty** container: https://github.com/azerothcore/mod-eluna/pull/52
