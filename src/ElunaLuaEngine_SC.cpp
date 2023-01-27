@@ -771,6 +771,7 @@ public:
     {
         return sEluna->OnCanJoinLfg(player, roles, dungeons, comment);
     }
+
     void OnQuestRewardItem(Player* player, Item* item, uint32 count) override
     {
         sEluna->OnQuestRewardItem(player, item, count);
