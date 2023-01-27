@@ -653,6 +653,7 @@ void Eluna::OnCreateItem(Player* player, Item* item, uint32 count)
     Push(count);
     CallAllFunctions(PlayerEventBindings, key);
 }
+
 void Eluna::OnStoreNewItem(Player* player, Item* item, uint32 count)
 {
     START_HOOK(PLAYER_EVENT_ON_STORE_NEW_ITEM);
