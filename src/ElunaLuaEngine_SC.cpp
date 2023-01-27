@@ -776,6 +776,7 @@ public:
     {
         sEluna->OnQuestRewardItem(player, item, count);
     }
+
     void OnCreateItem(Player* player, Item* item, uint32 count) override
     {
         sEluna->OnCreateItem(player, item, count);
