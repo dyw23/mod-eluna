@@ -44,11 +44,7 @@ typedef SpellEntry SpellInfo;
 typedef int Difficulty;
 #endif
 #endif
-#ifndef AZEROTHCORE
-struct AreaTriggerEntry;
-#else
 typedef AreaTrigger AreaTriggerEntry;
-#endif
 class AuctionHouseObject;
 struct AuctionEntry;
 #if defined(TRINITY) || AZEROTHCORE
