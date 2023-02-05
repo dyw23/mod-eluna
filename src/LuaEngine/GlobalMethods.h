@@ -1710,7 +1710,7 @@ namespace LuaGlobalFunctions
                 map->Add(pGameObj);
                 pGameObj->AIM_Initialize();
 
-                eObjectMgr->AddGameobjectToGrid(db_lowGUID, eObjectMgr->GetGOData(db_lowGUID));
+                eObjectMgr->AddGameobjectToGrid(db_lowGUID, eObjectMgr->GetGameObjectData(db_lowGUID));
 
                 Eluna::Push(L, pGameObj);
             }
