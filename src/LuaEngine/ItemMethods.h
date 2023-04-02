@@ -265,10 +265,10 @@ namespace LuaItem
 
         const ItemTemplate* temp = item->GetTemplate();
         std::string name = temp->Name1;
-        /*if (ItemLocale const* il = eObjectMgr->GetItemLocale(temp->ItemId))
+        if (ItemLocale const* il = eObjectMgr->GetItemLocale(temp->ItemId))
         {
             ObjectMgr::GetLocaleString(il->Name, static_cast<LocaleConstant>(locale), name);
-        }*/
+        }
 
 #ifndef CLASSIC
         if (int32 itemRandPropId = item->GetItemRandomPropertyId())
@@ -286,21 +286,25 @@ namespace LuaItem
             {
                 const ItemRandomSuffixEntry* itemRandEntry = sItemRandomSuffixStore.LookupEntry(-item->GetItemRandomPropertyId());
                 if (itemRandEntry)
+                {
 #if TRINITY || AZEROTHCORE
                     suffix = &itemRandEntry->Name;
 #else
                     suffix = itemRandEntry->nameSuffix;
 #endif
+                }
             }
             else
             {
                 const ItemRandomPropertiesEntry* itemRandEntry = sItemRandomPropertiesStore.LookupEntry(item->GetItemRandomPropertyId());
                 if (itemRandEntry)
+                {
 #if TRINITY || AZEROTHCORE
                     suffix = &itemRandEntry->Name;
 #else
                     suffix = itemRandEntry->nameSuffix;
 #endif
+                }
             }
             if (suffix)
             {
@@ -309,8 +313,11 @@ namespace LuaItem
 #else
                 const char* suffixName = suffix[(name != temp->Name1) ? locale : uint8(DEFAULT_LOCALE)];
 #endif
-                name += ' ';
-                name += suffixName;
+                if (strcmp(suffixName, "") != 0)
+                {
+                    name += ' ';
+                    name += suffixName;
+                }
             }
         }
 #endif
