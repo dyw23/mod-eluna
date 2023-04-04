@@ -101,6 +101,7 @@ Eluna API for AC:
 
 ### Unit
 - Added `Unit:ModifyThreatPct()`: https://github.com/azerothcore/mod-eluna/pull/25
+- Added `Unit:GetAttackers()`: https://github.com/azerothcore/mod-eluna/pull/116
 - Added `Unit:GetThreatList()`: https://github.com/azerothcore/mod-eluna/pull/117
 
 ### GameObject
