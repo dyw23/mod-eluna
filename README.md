@@ -101,6 +101,8 @@ Eluna API for AC:
 
 ### Unit
 - Added `Unit:ModifyThreatPct()`: https://github.com/azerothcore/mod-eluna/pull/25
+- Added `Unit:GetAttackers()`: https://github.com/azerothcore/mod-eluna/pull/116
+- Added `Unit:GetThreatList()`: https://github.com/azerothcore/mod-eluna/pull/117
 
 ### GameObject
 - Added `GameObject:AddLoot()` to add loot at runtime to an **empty** container: https://github.com/azerothcore/mod-eluna/pull/52
@@ -118,3 +120,4 @@ Eluna API for AC:
 - Added `ItemTemplate` methods: https://github.com/azerothcore/mod-eluna/pull/84
 - Added logging with `ELUNA_LOG_INFO` for `RunCommand()`: https://github.com/azerothcore/mod-eluna/pull/75
 - Added `GetOwnerHalaa` and `SetOwnerHalaa`: https://github.com/azerothcore/mod-eluna/pull/79
+- Added `WorldDBQueryAsync`, `CharDBQueryAsync` and `AuthDBQueryAsync`: https://github.com/azerothcore/mod-eluna/pull/113

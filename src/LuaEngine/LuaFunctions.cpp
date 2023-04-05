@@ -128,10 +128,13 @@ luaL_Reg GlobalMethods[] =
     { "RunCommand", &LuaGlobalFunctions::RunCommand },
     { "SendWorldMessage", &LuaGlobalFunctions::SendWorldMessage },
     { "WorldDBQuery", &LuaGlobalFunctions::WorldDBQuery },
+    { "WorldDBQueryAsync", &LuaGlobalFunctions::WorldDBQueryAsync },
     { "WorldDBExecute", &LuaGlobalFunctions::WorldDBExecute },
     { "CharDBQuery", &LuaGlobalFunctions::CharDBQuery },
+    { "CharDBQueryAsync", &LuaGlobalFunctions::CharDBQueryAsync },
     { "CharDBExecute", &LuaGlobalFunctions::CharDBExecute },
     { "AuthDBQuery", &LuaGlobalFunctions::AuthDBQuery },
+    { "AuthDBQueryAsync", &LuaGlobalFunctions::AuthDBQueryAsync },
     { "AuthDBExecute", &LuaGlobalFunctions::AuthDBExecute },
     { "CreateLuaEvent", &LuaGlobalFunctions::CreateLuaEvent },
     { "RemoveEventById", &LuaGlobalFunctions::RemoveEventById },
@@ -308,6 +311,7 @@ ElunaRegister<Unit> UnitMethods[] =
     // {"GetVehicle", &LuaUnit::GetVehicle},                           // :GetVehicle() - UNDOCUMENTED - Gets the Vehicle kit of the vehicle the unit is on
 #endif
     { "GetMovementType", &LuaUnit::GetMovementType },
+    { "GetAttackers", &LuaUnit::GetAttackers },
 
     // Setters
     { "SetFaction", &LuaUnit::SetFaction },
@@ -424,6 +428,7 @@ ElunaRegister<Unit> UnitMethods[] =
     // {"RemoveBindSightAuras", &LuaUnit::RemoveBindSightAuras},        // :RemoveBindSightAuras() - UNDOCUMENTED
     // {"RemoveCharmAuras", &LuaUnit::RemoveCharmAuras},                // :RemoveCharmAuras() - UNDOCUMENTED
     { "ClearThreatList", &LuaUnit::ClearThreatList },
+    { "GetThreatList", &LuaUnit::GetThreatList },
     { "ClearUnitState", &LuaUnit::ClearUnitState },
     { "AddUnitState", &LuaUnit::AddUnitState },
     // {"DisableMelee", &LuaUnit::DisableMelee},                        // :DisableMelee([disable]) - UNDOCUMENTED - if true, enables
