@@ -4168,6 +4168,13 @@ namespace LuaPlayer
     }
 #endif
 
+    /**
+     * Sets a setting value for the [Player]
+     *
+     * @param string source
+     * @param uint32 index
+     * @param uint32 value
+     */
     int UpdatePlayerSetting(lua_State* L, Player* player)
     {
         std::string source = Eluna::CHECKVAL<std::string>(L, 2);
@@ -4177,6 +4184,12 @@ namespace LuaPlayer
         return 0;
     }
 
+    /**
+     * Gets a setting value for the [Player]
+     *
+     * @param string source
+     * @param uint32 index
+     */
     int GetPlayerSettingValue(lua_State* L, Player* player)
     {
         std::string source = Eluna::CHECKVAL<std::string>(L, 2);
