@@ -4168,6 +4168,21 @@ namespace LuaPlayer
     }
 #endif
 
+    void UpdatePlayerSetting(lua_State* L, Player* player)
+    {
+        std::string source = Eluna::CHECKVAL<std::string>(L, 2);
+        uint32 index = Eluna::CHECKVAL<uint32>(L, 3);
+        uint32 value = Eluna::CHECKVAL<uint32>(L, 4);
+        player->UpdatePlayerSetting(source, index, value);
+    }
+
+    uint32 GetPlayerSettingValue(lua_State* L, Player* player)
+    {
+        std::string source = Eluna::CHECKVAL<std::string>(L, 2);
+        uint32 index = Eluna::CHECKVAL<uint32>(L, 3);
+        return player->GetPlayerSetting(source, index).value;
+    }
+
     /*int BindToInstance(lua_State* L, Player* player)
     {
     player->BindToInstance();
