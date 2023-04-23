@@ -543,6 +543,8 @@ ElunaRegister<Player> PlayerMethods[] =
     { "GetRankPoints", &LuaPlayer::GetRankPoints },
     { "GetHonorLastWeekStandingPos", &LuaPlayer::GetHonorLastWeekStandingPos },
 #endif
+    { "GetPlayerSettingValue", &LuaPlayer::GetPlayerSettingValue },
+    { "GetTrader", &LuaPlayer::GetTrader },
 
     // Setters
     { "AdvanceSkillsToMax", &LuaPlayer::AdvanceSkillsToMax },
@@ -779,6 +781,7 @@ ElunaRegister<Player> PlayerMethods[] =
     { "ResetHonor", &LuaPlayer::ResetHonor },
     { "ClearHonorInfo", &LuaPlayer::ClearHonorInfo },
 #endif
+    { "UpdatePlayerSetting", &LuaPlayer::UpdatePlayerSetting },
 
     { NULL, NULL }
 };
