@@ -918,8 +918,8 @@ auto const& threatlist = creature->GetThreatMgr().GetThreatList();
     /**
     * Returns the [Creature]'s Unit flags.
     *
-    * These are used to control whether the NPC is a vendor, can repair items,
-    *   can give quests, etc.
+    * These are used to control whether the NPC is attackable or not as well as many other different things,
+    *
     *
     * @return [unit_flags] unitFlags
     */
@@ -931,9 +931,6 @@ auto const& threatlist = creature->GetThreatMgr().GetThreatList();
 
     /**
     * Returns the [Creature]'s Unit flags 2.
-    *
-    * These are used to control whether the NPC is a vendor, can repair items,
-    *   can give quests, etc.
     *
     * @return [unit_flags2] unitFlags2
     */
