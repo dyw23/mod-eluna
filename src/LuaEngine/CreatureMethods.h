@@ -947,7 +947,6 @@ auto const& threatlist = creature->GetThreatMgr().GetThreatList();
      *
      * @return [ExtraFlags] extraFlags
      */
-    
     int GetExtraFlags(lua_State* L, Creature* creature)
     {
 #if defined(TRINITY) || defined(AZEROTHCORE)
