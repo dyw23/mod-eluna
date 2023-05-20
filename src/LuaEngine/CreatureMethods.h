@@ -1020,10 +1020,10 @@ auto const& threatlist = creature->GetThreatMgr().GetThreatList();
     }
 
     /**
-    * Sets the [Creature]'s UNIT flags2 to `flags`.
-    *
-    * @param [unit_flags2] flags
-    */
+     * Sets the [Creature]'s Unit flags2 to `flags`.
+     *
+     * @param [UnitFlags2] flags
+     */
     int SetUnitFlagsTwo(lua_State* L, Creature* creature)
     {
         uint32 flags = Eluna::CHECKVAL<uint32>(L, 2);
