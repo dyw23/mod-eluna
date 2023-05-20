@@ -916,13 +916,12 @@ auto const& threatlist = creature->GetThreatMgr().GetThreatList();
     }
     
     /**
-    * Returns the [Creature]'s Unit flags.
-    *
-    * These are used to control whether the NPC is attackable or not as well as many other different things,
-    *
-    *
-    * @return [unit_flags] unitFlags
-    */
+     * Returns the [Creature]'s Unit flags.
+     *
+     * These are used to control whether the NPC is attackable or not, among other things.
+     *
+     * @return [UnitFlags] unitFlags
+     */
     int GetUnitFlags(lua_State* L, Creature* creature)
     {
         Eluna::Push(L, creature->GetUInt32Value(UNIT_FIELD_FLAGS));
