@@ -929,10 +929,10 @@ auto const& threatlist = creature->GetThreatMgr().GetThreatList();
     }
 
     /**
-    * Returns the [Creature]'s Unit flags 2.
-    *
-    * @return [unit_flags2] unitFlags2
-    */
+     * Returns the [Creature]'s Unit flags 2.
+     *
+     * @return [UnitFlags2] unitFlags2
+     */
     int GetUnitFlagsTwo(lua_State* L, Creature* creature)
     {
         Eluna::Push(L, creature->GetUInt32Value(UNIT_FIELD_FLAGS_2));
