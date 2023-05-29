@@ -1403,9 +1403,9 @@ auto const& threatlist = creature->GetThreatMgr().GetThreatList();
     }
     
     /**
-    * Retreives the entry ID of the [Creature]
+    * Retreives the entry ID of the [Creature].
     *
-    * @param uint32 entry : the Creature ID to find
+    * @param uint32 entry : the Creature ID to find.
     */
     int GetCreatureByEntry(lua_State* L, Creature* creature)
     {
