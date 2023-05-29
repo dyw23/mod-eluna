@@ -657,9 +657,9 @@ public:
         sEluna->OnMoneyChanged(player, amount);
     }
 
-    void OnGiveXP(Player* player, uint32& amount, Unit* victim) override
+    void OnGiveXP(Player* player, uint32& amount, Unit* victim, uint8 xpSource) override
     {
-        sEluna->OnGiveXP(player, amount, victim);
+        sEluna->OnGiveXP(player, amount, victim, xpSource);
     }
 
     bool OnReputationChange(Player* player, uint32 factionID, int32& standing, bool incremental) override
@@ -800,6 +800,16 @@ public:
     bool CanGroupInvite(Player* player, std::string& memberName) override
     {
         return sEluna->OnCanGroupInvite(player, memberName);
+    }
+    
+    void OnApplyAura(Player* player, Aura* aura, bool isNewAura)
+    {
+        return sEluna->OnApplyAura(player, aura, isNewAura);
+    }
+
+    void OnRemoveAura(Player* player, Aura* aura, bool isExpired)
+    {
+        return sEluna->OnRemoveAura(player, aura, isExpired);
     }
 };
 

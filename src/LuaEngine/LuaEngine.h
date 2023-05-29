@@ -456,7 +456,7 @@ public:
     void OnFreeTalentPointsChanged(Player* pPlayer, uint32 newPoints);
     void OnTalentsReset(Player* pPlayer, bool noCost);
     void OnMoneyChanged(Player* pPlayer, int32& amount);
-    void OnGiveXP(Player* pPlayer, uint32& amount, Unit* pVictim);
+    void OnGiveXP(Player* pPlayer, uint32& amount, Unit* pVictim, uint8 xpSource);
     bool OnReputationChange(Player* pPlayer, uint32 factionID, int32& standing, bool incremental);
     void OnDuelRequest(Player* pTarget, Player* pChallenger);
     void OnDuelStart(Player* pStarter, Player* pChallenger);
@@ -487,6 +487,8 @@ public:
     bool OnCanJoinLfg(Player* player, uint8 roles, lfg::LfgDungeonSet& dungeons, const std::string& comment);
     bool OnCanGroupInvite(Player* player, std::string& memberName);
     void OnGroupRollRewardItem(Player* player, Item* item, uint32 count, RollVote voteType, Roll* roll);
+    void OnApplyAura(Player* player, Aura* aura, bool isNewAura);
+    void OnRemoveAura(Player* player, Aura* aura, bool isExpired);
 
 #ifndef CLASSIC
 #ifndef TBC
