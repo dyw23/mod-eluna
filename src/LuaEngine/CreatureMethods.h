@@ -1401,6 +1401,18 @@ auto const& threatlist = creature->GetThreatMgr().GetThreatList();
 #endif
         return 1;
     }
+    
+    /**
+    * Retreives the entry ID of the [Creature]
+    *
+    * @param uint32 entry : the Creature ID to find
+    */
+    int GetCreatureByEntry(lua_State* L, Creature* creature)
+    {
+        uint32 entry = creature->GetEntry();
+        Eluna::Push(L, eObjectMgr->GetCreatureTemplate(entry));
+        return 1;
+    }
 
     /**
      * Transform the [Creature] into another Creature.
