@@ -114,6 +114,7 @@ Eluna API for AC:
 - Added `Unit:GetUnitFlagsTwo()`: https://github.com/azerothcore/mod-eluna/pull/137
 - Added `Unit:SetUnitFlags(flags)`: https://github.com/azerothcore/mod-eluna/pull/137
 - Added `Unit:SetUnitFlagsTwo(flags)`: https://github.com/azerothcore/mod-eluna/pull/137
+- Added `Unit:GetCreatureByEntry(entry)`: https://github.com/azerothcore/mod-eluna/pull/143
 
 ### GameObject
 - Added `GameObject:AddLoot()` to add loot at runtime to an **empty** container: https://github.com/azerothcore/mod-eluna/pull/52
@@ -133,3 +134,4 @@ Eluna API for AC:
 - Added logging with `ELUNA_LOG_INFO` for `RunCommand()`: https://github.com/azerothcore/mod-eluna/pull/75
 - Added `GetOwnerHalaa` and `SetOwnerHalaa`: https://github.com/azerothcore/mod-eluna/pull/79
 - Added `WorldDBQueryAsync`, `CharDBQueryAsync` and `AuthDBQueryAsync`: https://github.com/azerothcore/mod-eluna/pull/113
+- Added `GetCreatureById(entry)`: https://github.com/azerothcore/mod-eluna/pull/143
