@@ -116,7 +116,8 @@ luaL_Reg GlobalMethods[] =
     { "PrintError", &LuaGlobalFunctions::PrintError },
     { "PrintDebug", &LuaGlobalFunctions::PrintDebug },
     { "GetActiveGameEvents", &LuaGlobalFunctions::GetActiveGameEvents },
-
+    { "GetCreatureById", &LuaGlobalFunctions::GetCreatureById },
+    
     // Boolean
     { "IsInventoryPos", &LuaGlobalFunctions::IsInventoryPos },
     { "IsEquipmentPos", &LuaGlobalFunctions::IsEquipmentPos },
@@ -800,6 +801,7 @@ ElunaRegister<Creature> CreatureMethods[] =
     { "GetScriptId", &LuaCreature::GetScriptId },
     { "GetAIName", &LuaCreature::GetAIName },
     { "GetScriptName", &LuaCreature::GetScriptName },
+    { "GetCreatureByEntry", &LuaCreature::GetCreatureByEntry },
 #ifndef AZEROTHCORE
     { "GetAttackDistance", &LuaCreature::GetAttackDistance },
 #endif
