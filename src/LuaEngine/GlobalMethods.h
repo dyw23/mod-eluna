@@ -265,6 +265,18 @@ namespace LuaGlobalFunctions
         Eluna::Push(L, eMapMgr->FindMap(mapid, instance));
         return 1;
     }
+    
+    /**
+    * Retreives the entry ID of the [Creature]
+    *
+    * @param uint32 entry : the Creature ID to find
+    */
+    int GetCreatureById(lua_State* L)
+    {
+        uint32 entry = Eluna::CHECKVAL<uint32>(L, 1);
+        Eluna::Push(L, eObjectMgr->GetCreatureTemplate(entry));
+        return 1;
+    }
 
     /**
      * Returns [Guild] by the leader's GUID
