@@ -117,7 +117,7 @@ luaL_Reg GlobalMethods[] =
     { "PrintDebug", &LuaGlobalFunctions::PrintDebug },
     { "GetActiveGameEvents", &LuaGlobalFunctions::GetActiveGameEvents },
     { "GetCreatureTemplate", &LuaGlobalFunctions::GetCreatureTemplate },
-    
+
     // Boolean
     { "IsInventoryPos", &LuaGlobalFunctions::IsInventoryPos },
     { "IsEquipmentPos", &LuaGlobalFunctions::IsEquipmentPos },
