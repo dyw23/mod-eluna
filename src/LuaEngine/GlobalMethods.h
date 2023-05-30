@@ -265,12 +265,12 @@ namespace LuaGlobalFunctions
         Eluna::Push(L, eMapMgr->FindMap(mapid, instance));
         return 1;
     }
-    
+
     /**
-    * Retreives the entry ID of the [Creature]
-    *
-    * @param uint32 entry : the Creature ID to find
-    */
+     * Retreives the entry ID of the [Creature]
+     *
+     * @param uint32 entry : the Creature ID to find
+     */
     int GetCreatureTemplate(lua_State* L)
     {
         uint32 entry = Eluna::CHECKVAL<uint32>(L, 1);
