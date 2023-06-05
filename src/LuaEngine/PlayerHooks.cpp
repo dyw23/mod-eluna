@@ -708,3 +708,11 @@ void Eluna::OnRemoveAura(Player* player, Aura* aura, bool isExpired)
     Push(isExpired);
     CallAllFunctions(PlayerEventBindings, key);
 }
+
+void Eluna::OnBattlegroundDesertion(Player* player, const BattlegroundDesertionType type)
+{
+    START_HOOK(PLAYER_EVENT_ON_BG_DESERTION);
+    Push(player);
+    Push(type);
+    CallAllFunctions(PlayerEventBindings, key);
+}

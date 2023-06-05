@@ -811,6 +811,11 @@ public:
     {
         return sEluna->OnRemoveAura(player, aura, isExpired);
     }
+
+    void OnBattlegroundDesertion(Player* player, const BattlegroundDesertionType type) override
+    {
+        sEluna->OnBattlegroundDesertion(player, type);
+    }
 };
 
 class Eluna_ServerScript : public ServerScript

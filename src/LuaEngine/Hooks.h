@@ -220,6 +220,7 @@ namespace Hooks
         PLAYER_EVENT_ON_GROUP_ROLL_REWARD_ITEM  =     56,       // (event, player, item, count, voteType, roll)
         PLAYER_EVENT_ON_APPLY_AURA              =     57,       // (event, player, aura, isNewAura)
         PLAYER_EVENT_ON_REMOVE_AURA             =     58,       // (event, player, aura, isExpired)
+        PLAYER_EVENT_ON_BG_DESERTION            =     59,       // (event, player, type)
         
         PLAYER_EVENT_COUNT
     };

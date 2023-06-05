@@ -491,6 +491,7 @@ public:
     void OnGroupRollRewardItem(Player* player, Item* item, uint32 count, RollVote voteType, Roll* roll);
     void OnApplyAura(Player* player, Aura* aura, bool isNewAura);
     void OnRemoveAura(Player* player, Aura* aura, bool isExpired);
+    void OnBattlegroundDesertion(Player* player, const BattlegroundDesertionType type);
 
 #ifndef CLASSIC
 #ifndef TBC
