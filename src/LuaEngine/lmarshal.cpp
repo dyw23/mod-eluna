@@ -219,7 +219,7 @@ static void mar_encode_value(lua_State *L, mar_Buffer *buf, int val, size_t *idx
 
             lua_pushvalue(L, -1);
             buf_init(L, &rec_buf);
-            lua_dump(L, (lua_Writer)buf_write, &rec_buf);
+            lua_dump(L, (lua_Writer)buf_write, &rec_buf, 0);
 
             buf_write(L, (const char*)&tag, MAR_CHR, buf);
             buf_write(L, (const char*)&rec_buf.head, MAR_I32, buf);
