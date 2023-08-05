@@ -3834,6 +3834,25 @@ namespace LuaPlayer
         return 0;
     }
 
+    /**
+    * Add the [Player] the Glyph specified by glyph_id into the slot specified by slot_index into current talentGroup/Spec
+    *
+    * @param uint32 glyph_id
+    * @param uint32 slot_index
+    */
+    int AddGlyph(lua_State* L, Player* player)
+    {
+        uint32 glyph_id = Eluna::CHECKVAL<uint32>(L, 2);
+        uint32 slot_index = Eluna::CHECKVAL<uint32>(L, 3);
+
+        player->SetGlyph(slot_index, glyph_id, !player->GetSession()->PlayerLoading());
+        #if (!defined(TBC) && !defined(CLASSIC))
+            player->SendTalentsInfoData(false); //Also handles GlyphData
+        #endif
+
+        return 0;
+    }
+
 #if !defined(CLASSIC)
     /**
      * Remove cooldowns on spells that have less than 10 minutes of cooldown from the [Player], similarly to when you enter an arena.
