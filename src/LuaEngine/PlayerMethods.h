@@ -3840,7 +3840,7 @@ namespace LuaPlayer
     * @param uint32 glyph_id
     * @param uint32 slot_index
     */
-    int AddGlyph(lua_State* L, Player* player)
+    int SetGlyph(lua_State* L, Player* player)
     {
         uint32 glyph_id = Eluna::CHECKVAL<uint32>(L, 2);
         uint32 slot_index = Eluna::CHECKVAL<uint32>(L, 3);
