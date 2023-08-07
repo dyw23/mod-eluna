@@ -3845,10 +3845,8 @@ namespace LuaPlayer
         uint32 glyphId = Eluna::CHECKVAL<uint32>(L, 2);
         uint32 slotIndex = Eluna::CHECKVAL<uint32>(L, 3);
 
-        player->SetGlyph(slotIndex, glyphId, !player->GetSession()->PlayerLoading());
-        #if (!defined(TBC) && !defined(CLASSIC))
-            player->SendTalentsInfoData(false); // Also handles GlyphData
-        #endif
+        player->SetGlyph(slotIndex, glyphId, true);
+        player->SendTalentsInfoData(false); // Also handles GlyphData
 
         return 0;
     }
