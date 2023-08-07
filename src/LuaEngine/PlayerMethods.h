@@ -3837,8 +3837,8 @@ namespace LuaPlayer
     /**
     * Adds a glyph specified by `glyphId` to the [Player]'s current talent specialization into the slot with the index `slotIndex`
     *
-    * @param uint32 glyph_id
-    * @param uint32 slot_index
+    * @param uint32 glyphId
+    * @param uint32 slotIndex
     */
     int SetGlyph(lua_State* L, Player* player)
     {
