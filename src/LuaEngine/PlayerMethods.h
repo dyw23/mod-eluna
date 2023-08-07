@@ -3847,7 +3847,7 @@ namespace LuaPlayer
 
         player->SetGlyph(slotIndex, glyphId, !player->GetSession()->PlayerLoading());
         #if (!defined(TBC) && !defined(CLASSIC))
-            player->SendTalentsInfoData(false); //Also handles GlyphData
+            player->SendTalentsInfoData(false); // Also handles GlyphData
         #endif
 
         return 0;
