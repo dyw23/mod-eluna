@@ -3842,8 +3842,8 @@ namespace LuaPlayer
     */
     int SetGlyph(lua_State* L, Player* player)
     {
-        uint32 glyph_id = Eluna::CHECKVAL<uint32>(L, 2);
-        uint32 slot_index = Eluna::CHECKVAL<uint32>(L, 3);
+        uint32 glyphId = Eluna::CHECKVAL<uint32>(L, 2);
+        uint32 slotIndex = Eluna::CHECKVAL<uint32>(L, 3);
 
         player->SetGlyph(slot_index, glyph_id, !player->GetSession()->PlayerLoading());
         #if (!defined(TBC) && !defined(CLASSIC))
