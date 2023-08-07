@@ -3835,7 +3835,7 @@ namespace LuaPlayer
     }
 
     /**
-    * Add the [Player] the Glyph specified by glyph_id into the slot specified by slot_index into current talentGroup/Spec
+    * Adds a glyph specified by `glyphId` to the [Player]'s current talent specialization into the slot with the index `slotIndex`
     *
     * @param uint32 glyph_id
     * @param uint32 slot_index
