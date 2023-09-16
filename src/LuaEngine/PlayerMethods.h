@@ -859,6 +859,28 @@ namespace LuaPlayer
         Eluna::Push(L, player->GetPhaseMaskForSpawn());
         return 1;
     }
+
+    /**
+     * Returns the [Player]s current amount of Achievement Points
+     *
+     * @return uint32 achievementPoints
+     */
+    int GetAchievementPoints(lua_State* L, Player* player)
+    {
+        uint32 count = 0;
+        const CompletedAchievementMap& completedAchievements = player->GetAchievementMgr()->GetCompletedAchievements();
+        for (auto& pair : completedAchievements)
+        {
+            AchievementEntry const* achievement = sAchievementStore.LookupEntry(pair.first);
+            if (achievement)
+            {
+                count += achievement->points;
+            }
+        }
+
+        Eluna::Push(L, count);
+        return 1;
+    }
 #endif
 
 #if defined(TBC) || defined (WOTLK)
@@ -1684,6 +1706,19 @@ namespace LuaPlayer
         if (AccountMgr::GetName(player->GetSession()->GetAccountId(), accName))
 #endif
             Eluna::Push(L, accName);
+        return 1;
+    }
+
+    /**
+     * Returns the [Player]s completed quest count
+     *
+     * @return int32 questcount
+     */
+    int GetCompletedQuestCount(lua_State* L, Player* player)
+    {
+        uint32 count = player->GetRewardedQuestCount();
+
+        Eluna::Push(L, count);
         return 1;
     }
 
