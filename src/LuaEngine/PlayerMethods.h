@@ -881,6 +881,29 @@ namespace LuaPlayer
         Eluna::Push(L, count);
         return 1;
     }
+
+    /**
+     * Returns the [Player]s current amount of Achievements Completed
+     *
+     * @return uint32 achievementsCount
+     */
+    int GetCompletedAchievementsCount(lua_State* L, Player* player)
+    {
+        uint32 count = 0;
+        bool countFeatsOfStrength = Eluna::CHECKVAL<bool>(L, 2, false);
+        const CompletedAchievementMap& completedAchievements = player->GetAchievementMgr()->GetCompletedAchievements();
+        for (auto& pair : completedAchievements)
+        {
+            AchievementEntry const* achievement = sAchievementStore.LookupEntry(pair.first);
+            if (achievement && (achievement->categoryId != 81 || countFeatsOfStrength))
+            {               
+                    count++;             
+            }
+        }
+
+        Eluna::Push(L, count);
+        return 1;
+    }
 #endif
 
 #if defined(TBC) || defined (WOTLK)
@@ -1714,7 +1737,7 @@ namespace LuaPlayer
      *
      * @return int32 questcount
      */
-    int GetCompletedQuestCount(lua_State* L, Player* player)
+    int GetCompletedQuestsCount(lua_State* L, Player* player)
     {
         uint32 count = player->GetRewardedQuestCount();
 
