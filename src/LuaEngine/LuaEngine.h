@@ -250,6 +250,7 @@ public:
     BindingMap< EventKey<Hooks::GroupEvents> >*      GroupEventBindings;
     BindingMap< EventKey<Hooks::VehicleEvents> >*    VehicleEventBindings;
     BindingMap< EventKey<Hooks::BGEvents> >*         BGEventBindings;
+    BindingMap< EventKey<Hooks::UnitEvents> >*       UnitEventBindings;
 
     BindingMap< EntryKey<Hooks::PacketEvents> >*     PacketEventBindings;
     BindingMap< EntryKey<Hooks::CreatureEvents> >*   CreatureEventBindings;
@@ -580,6 +581,10 @@ public:
 #endif
     void OnBGCreate(BattleGround* bg, BattleGroundTypeId bgId, uint32 instanceId);
     void OnBGDestroy(BattleGround* bg, BattleGroundTypeId bgId, uint32 instanceId);
+
+    /* Unit */
+    void OnAuraApply(Unit* unit, Aura* aura);
+    void OnAuraRemove(Unit* unit, Aura* aura, AuraRemoveMode removeMode);
 };
 template<> Unit* Eluna::CHECKOBJ<Unit>(lua_State* L, int narg, bool error);
 template<> Object* Eluna::CHECKOBJ<Object>(lua_State* L, int narg, bool error);

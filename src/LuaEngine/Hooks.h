@@ -86,6 +86,7 @@ namespace Hooks
         REGTYPE_BG,
         REGTYPE_MAP,
         REGTYPE_INSTANCE,
+        REGTYPE_UNIT,
         REGTYPE_COUNT
     };
 
@@ -363,6 +364,13 @@ namespace Hooks
         INSTANCE_EVENT_ON_GAMEOBJECT_CREATE             = 6,    // (event, instance_data, map, go)
         INSTANCE_EVENT_ON_CHECK_ENCOUNTER_IN_PROGRESS   = 7,    // (event, instance_data, map)
         INSTANCE_EVENT_COUNT
+    };
+
+    enum UnitEvents
+    {
+        UNIT_EVENT_ON_AURA_APPLY                        = 1,    // (event, unit, aura)
+        UNIT_EVENT_ON_AURA_REMOVE                       = 2,    // (event, unit, aura, removeMode)
+        UNIT_EVENT_COUNT
     };
 };
 

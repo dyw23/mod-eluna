@@ -1039,6 +1039,27 @@ namespace LuaGlobalFunctions
     }
 
     /**
+     * Registers a [Unit] event handler.
+     *
+     * <pre>
+     * enum UnitEvents
+     * {
+     *     UNIT_EVENT_ON_AURA_APPLY                        = 1,    // (event, unit, aura)
+     *     UNIT_EVENT_ON_AURA_REMOVE                       = 2,    // (event, unit, aura, removeMode)
+     *     UNIT_EVENT_COUNT
+     * };
+     * </pre>
+     *
+     * @param uint32 event : event ID, refer to UnitEvents above
+     * @param function function : function to register
+     * @param uint32 shots = 0 : the number of times the function will be called, 0 means "always call this function"
+     */
+    int RegisterUnitEvent(lua_State* L)
+    {
+        return RegisterEventHelper(L, Hooks::REGTYPE_UNIT);
+    }
+
+    /**
      * Registers a [Player] gossip event handler.
      *
      * Note that you can not use `GOSSIP_EVENT_ON_HELLO` with this hook. It does nothing since players dont have an "on hello".
@@ -2953,8 +2974,8 @@ namespace LuaGlobalFunctions
      * **NOTE:** this will affect all instances of the [Creature], not just one.
      * To bind and unbind events to a single [Creature], see [Global:RegisterUniqueCreatureEvent] and [Global:ClearUniqueCreatureEvents].
      *
-     * @proto (entry)
-     * @proto (entry, event_type)
+     * @proto (guid, instance_id)
+     * @proto (guid, instance_id, event_type)
      * @param uint32 entry : the ID of one or more [Creature]s whose handlers will be cleared
      * @param uint32 event_type : the event whose handlers will be cleared, see [Global:RegisterCreatureEvent]
      */
@@ -3437,6 +3458,33 @@ namespace LuaGlobalFunctions
             Eluna::GetEluna(L)->InstanceEventBindings->Clear(Key((Hooks::InstanceEvents)event_type, entry));
         }
 
+        return 0;
+    }
+
+    /**
+     * Unbinds event handlers for either all [Unit] events, or one type of [Unit] event.
+     *
+     * If `event_type` is `nil`, all [Unit] event handlers are cleared.
+     *
+     * Otherwise, only event handlers for `event_type` are cleared.
+     *
+     * @proto ()
+     * @proto (event_type)
+     * @param uint32 event_type : the event whose handlers will be cleared, see [Global:RegisterUnitEvent]
+     */
+    int ClearUnitEvents(lua_State* L)
+    {
+        typedef EventKey<Hooks::UnitEvents> Key;
+
+        if (lua_isnoneornil(L, 1))
+        {
+            Eluna::GetEluna(L)->UnitEventBindings->Clear();
+        }
+        else
+        {
+            uint32 event_type = Eluna::CHECKVAL<uint32>(L, 1);
+            Eluna::GetEluna(L)->UnitEventBindings->Clear(Key((Hooks::UnitEvents)event_type));
+        }
         return 0;
     }
 

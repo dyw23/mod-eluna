@@ -860,6 +860,16 @@ public:
     {
         unit->elunaEvents->Update(diff);
     }
+
+    void OnAuraApply(Unit* unit, Aura* aura) override
+    {
+        return sEluna->OnAuraApply(unit, aura);
+    }
+
+    void OnAuraRemove(Unit* unit, AuraApplication* auraApp, AuraRemoveMode mode) override
+    {
+        return sEluna->OnAuraRemove(unit, auraApp->GetBase(), mode);
+    }
 };
 
 class Eluna_VehicleScript : public VehicleScript
