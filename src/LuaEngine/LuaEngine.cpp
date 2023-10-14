@@ -671,7 +671,7 @@ void Eluna::Push(lua_State* luastate, const int i)
 }
 void Eluna::Push(lua_State* luastate, const unsigned int u)
 {
-    lua_pushunsigned(luastate, u);
+    lua_pushnumber(luastate, u);
 }
 void Eluna::Push(lua_State* luastate, const double d)
 {
