@@ -1670,6 +1670,12 @@ namespace LuaPlayer
         return 1;
     }
 
+    int GetFlightStamina(lua_State* L, Player* player)
+    {
+        Eluna::Push(L, (uint8) player->GetFlightStamina());
+        return 1;
+    }
+
     /**
      * Returns the [Player]s account name
      *

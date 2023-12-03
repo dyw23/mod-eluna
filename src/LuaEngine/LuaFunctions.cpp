@@ -471,6 +471,7 @@ ElunaRegister<Player> PlayerMethods[] =
     { "GetGroup", &LuaPlayer::GetGroup },
     { "GetGuild", &LuaPlayer::GetGuild },
     { "GetAccountId", &LuaPlayer::GetAccountId },
+    { "GetFlightStamina", &LuaPlayer::GetFlightStamina },
     { "GetAccountName", &LuaPlayer::GetAccountName },
 #if defined (TBC) || defined (WOTLK)
     { "GetArenaPoints", &LuaPlayer::GetArenaPoints },
