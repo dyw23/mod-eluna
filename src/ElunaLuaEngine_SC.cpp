@@ -917,7 +917,9 @@ public:
 
     void OnWorldObjectUpdate(WorldObject* object, uint32 diff) override
     {
-        object->elunaEvents->Update(diff);
+        if (object->elunaEvents){
+            object->elunaEvents->Update(diff);
+        }
     }
 };
 
