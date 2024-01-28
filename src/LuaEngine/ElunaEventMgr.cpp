@@ -10,8 +10,8 @@
 
 extern "C"
 {
-#include "lua.h"
-#include "lauxlib.h"
+    #include "lua.h"
+    #include "lauxlib.h"
 };
 
 ElunaEventProcessor::ElunaEventProcessor(Eluna** _E, WorldObject* _obj) : m_time(0), obj(_obj), E(_E)
