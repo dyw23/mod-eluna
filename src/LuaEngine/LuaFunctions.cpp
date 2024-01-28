@@ -522,7 +522,6 @@ ElunaRegister<Player> PlayerMethods[] =
     { "GetTrader", &LuaPlayer::GetTrader },
 
     // Setters
-    {"HandleStatModifier", &LuaUnit::HandleStatModifier},
     { "AdvanceSkillsToMax", &LuaPlayer::AdvanceSkillsToMax },
     { "AdvanceSkill", &LuaPlayer::AdvanceSkill },
     { "AdvanceAllSkills", &LuaPlayer::AdvanceAllSkills },
