@@ -4,48 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf89ae5a-8e41-40a0-834f-878398721388" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/LuaEngine/AuraMethods.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/LuaEngine/AuraMethods.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LuaEngine/BattleGroundHooks.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/LuaEngine/BattleGroundHooks.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LuaEngine/BattleGroundMethods.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/LuaEngine/BattleGroundMethods.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LuaEngine/BindingMap.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/LuaEngine/BindingMap.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LuaEngine/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LuaEngine/CorpseMethods.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/LuaEngine/CorpseMethods.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LuaEngine/CreatureMethods.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/LuaEngine/CreatureMethods.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LuaEngine/ElunaCreatureAI.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/LuaEngine/ElunaCreatureAI.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LuaEngine/ElunaEventMgr.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/LuaEngine/ElunaEventMgr.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LuaEngine/ElunaEventMgr.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/LuaEngine/ElunaEventMgr.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LuaEngine/ElunaIncludes.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/LuaEngine/ElunaIncludes.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LuaEngine/ElunaInstanceAI.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/LuaEngine/ElunaInstanceAI.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LuaEngine/ElunaInstanceAI.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/LuaEngine/ElunaInstanceAI.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LuaEngine/ElunaQueryMethods.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/LuaEngine/ElunaQueryMethods.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LuaEngine/ElunaTemplate.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/LuaEngine/ElunaTemplate.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LuaEngine/ElunaUtility.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/LuaEngine/ElunaUtility.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LuaEngine/ElunaUtility.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/LuaEngine/ElunaUtility.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LuaEngine/GameObjectHooks.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/LuaEngine/GameObjectHooks.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LuaEngine/GameObjectMethods.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/LuaEngine/GameObjectMethods.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LuaEngine/GlobalMethods.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/LuaEngine/GlobalMethods.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LuaEngine/GroupMethods.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/LuaEngine/GroupMethods.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LuaEngine/GuildMethods.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/LuaEngine/GuildMethods.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LuaEngine/HttpManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/LuaEngine/HttpManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LuaEngine/ItemHooks.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/LuaEngine/ItemHooks.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LuaEngine/ItemMethods.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/LuaEngine/ItemMethods.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LuaEngine/LuaEngine.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/LuaEngine/LuaEngine.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LuaEngine/LuaEngine.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/LuaEngine/LuaEngine.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LuaEngine/LuaFunctions.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/LuaEngine/LuaFunctions.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LuaEngine/MapMethods.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/LuaEngine/MapMethods.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LuaEngine/ObjectMethods.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/LuaEngine/ObjectMethods.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LuaEngine/PlayerMethods.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/LuaEngine/PlayerMethods.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LuaEngine/QuestMethods.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/LuaEngine/QuestMethods.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LuaEngine/ServerHooks.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/LuaEngine/ServerHooks.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LuaEngine/SpellMethods.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/LuaEngine/SpellMethods.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LuaEngine/UnitMethods.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/LuaEngine/UnitMethods.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LuaEngine/VehicleHooks.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/LuaEngine/VehicleHooks.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LuaEngine/VehicleMethods.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/LuaEngine/VehicleMethods.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LuaEngine/WorldObjectMethods.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/LuaEngine/WorldObjectMethods.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LuaEngine/lmarshal.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/LuaEngine/lmarshal.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LuaEngine/lmarshal.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/LuaEngine/lmarshal.h" afterDir="false" />
-    </list>
+    <list default="true" id="bf89ae5a-8e41-40a0-834f-878398721388" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -89,7 +48,7 @@
       <option name="presentableId" value="Default" />
       <updated>1706445859834</updated>
       <workItem from="1706445861333" duration="15000" />
-      <workItem from="1706445885405" duration="4937000" />
+      <workItem from="1706445885405" duration="5019000" />
     </task>
     <servers />
   </component>
