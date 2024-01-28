@@ -1,5 +1,5 @@
 /*
-* Copyright (C) 2010 - 2016 Eluna Lua Engine <http://emudevs.com/>
+* Copyright (C) 2010 - 2024 Eluna Lua Engine <http://emudevs.com/>
 * This program is free software licensed under GPL version 3
 * Please see the included DOCS/LICENSE.md for more information
 */
@@ -528,9 +528,6 @@ ElunaRegister<Player> PlayerMethods[] =
     { "SetBindPoint", &LuaPlayer::SetBindPoint },
     { "SetArenaPoints", &LuaPlayer::SetArenaPoints },
     { "SetHonorPoints", &LuaPlayer::SetHonorPoints },
-    { "SetHonorStoredKills", &LuaPlayer::SetHonorStoredKills },
-    { "SetRankPoints", &LuaPlayer::SetRankPoints },
-    { "SetHonorLastWeekStandingPos", &LuaPlayer::SetHonorLastWeekStandingPos },
     { "SetLifetimeKills", &LuaPlayer::SetLifetimeKills },
     { "SetGameMaster", &LuaPlayer::SetGameMaster },
     { "SetGMChat", &LuaPlayer::SetGMChat },
