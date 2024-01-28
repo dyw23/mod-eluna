@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010 - 2016 Eluna Lua Engine <http://emudevs.com/>
+ * Copyright (C) 2010 - 2024 Eluna Lua Engine <http://emudevs.com/>
  * This program is free software licensed under GPL version 3
  * Please see the included DOCS/LICENSE.md for more information
  */
@@ -76,8 +76,6 @@ void Eluna::GetDialogStatus(const Player* pPlayer, const GameObject* pGameObject
     CallAllFunctions(GameObjectEventBindings, key);
 }
 
-#ifndef CLASSIC
-#ifndef TBC
 void Eluna::OnDestroyed(GameObject* pGameObject, WorldObject* attacker)
 {
     START_HOOK(GAMEOBJECT_EVENT_ON_DESTROYED, pGameObject->GetEntry());
@@ -93,8 +91,6 @@ void Eluna::OnDamaged(GameObject* pGameObject, WorldObject* attacker)
     Push(attacker);
     CallAllFunctions(GameObjectEventBindings, key);
 }
-#endif
-#endif
 
 void Eluna::OnLootStateChanged(GameObject* pGameObject, uint32 state)
 {

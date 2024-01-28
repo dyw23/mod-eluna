@@ -1,5 +1,5 @@
 /*
-* Copyright (C) 2010 - 2016 Eluna Lua Engine <http://emudevs.com/>
+* Copyright (C) 2010 - 2024 Eluna Lua Engine <http://emudevs.com/>
 * This program is free software licensed under GPL version 3
 * Please see the included DOCS/LICENSE.md for more information
 */
@@ -9,18 +9,10 @@
 
 #include "ElunaUtility.h"
 #include "Common.h"
-#ifdef TRINITY
-#include "Random.h"
-#else
 #include "Util.h"
-#endif
 #include <map>
 
-#if defined(TRINITY) || AZEROTHCORE
 #include "Define.h"
-#else
-#include "Platform/Define.h"
-#endif
 
 class Eluna;
 class EventMgr;

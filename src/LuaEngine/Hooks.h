@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010 - 2016 Eluna Lua Engine <http://emudevs.com/>
+ * Copyright (C) 2010 - 2024 Eluna Lua Engine <http://emudevs.com/>
  * This program is free software licensed under GPL version 3
  * Please see the included DOCS/LICENSE.md for more information
  */
@@ -214,7 +214,7 @@ namespace Hooks
         PLAYER_EVENT_ON_CAN_JOIN_LFG            =     50,       // (event, player, roles, dungeons, comment) - Can return false to prevent queueing
         PLAYER_EVENT_ON_QUEST_REWARD_ITEM       =     51,       // (event, player, item, count)
         PLAYER_EVENT_ON_CREATE_ITEM             =     52,       // (event, player, item, count)
-        PLAYER_EVENT_ON_STORE_NEW_ITEM          =     53,       // (event, player, item, count) 
+        PLAYER_EVENT_ON_STORE_NEW_ITEM          =     53,       // (event, player, item, count)
         PLAYER_EVENT_ON_COMPLETE_QUEST          =     54,       // (event, player, quest)
         PLAYER_EVENT_ON_CAN_GROUP_INVITE        =     55,       // (event, player, memberName) - Can return false to prevent inviting
         PLAYER_EVENT_ON_GROUP_ROLL_REWARD_ITEM  =     56,       // (event, player, item, count, voteType, roll)

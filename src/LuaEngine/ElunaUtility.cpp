@@ -1,5 +1,5 @@
 /*
-* Copyright (C) 2010 - 2016 Eluna Lua Engine <http://emudevs.com/>
+* Copyright (C) 2010 - 2024 Eluna Lua Engine <http://emudevs.com/>
 * This program is free software licensed under GPL version 3
 * Please see the included DOCS/LICENSE.md for more information
 */
@@ -10,9 +10,6 @@
 #include "Unit.h"
 #include "GameObject.h"
 #include "DBCStores.h"
-#ifdef MANGOS
-#include "Timer.h"
-#endif
 
 uint32 ElunaUtil::GetCurrTime()
 {
@@ -72,26 +69,16 @@ bool ElunaUtil::WorldObjectInRangeCheck::operator()(WorldObject* u)
             target = go->GetOwner();
     if (target)
     {
-#ifdef CMANGOS
-        if (i_dead && (i_dead == 1) != target->isAlive())
-            return false;
-#else
         if (i_dead && (i_dead == 1) != target->IsAlive())
             return false;
-#endif
         if (i_hostile)
         {
             if (!i_obj_unit)
             {
                 if (i_obj_fact)
                 {
-#if defined TRINITY || AZEROTHCORE
                     if ((i_obj_fact->IsHostileTo(*target->GetFactionTemplateEntry())) != (i_hostile == 1))
                         return false;
-#else
-                    if ((i_obj_fact->IsHostileTo(*target->getFactionTemplateEntry())) != (i_hostile == 1))
-                        return false;
-#endif
                 }
                 else if (i_hostile == 1)
                     return false;

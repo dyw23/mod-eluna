@@ -1,5 +1,5 @@
 /*
-* Copyright (C) 2010 - 2016 Eluna Lua Engine <http://emudevs.com/>
+* Copyright (C) 2010 - 2024 Eluna Lua Engine <http://emudevs.com/>
 * This program is free software licensed under GPL version 3
 * Please see the included DOCS/LICENSE.md for more information
 */
@@ -194,7 +194,7 @@ namespace LuaRoll
      *     ROLL_FLAG_TYPE_NEED                 = 0x02,
      *     ROLL_FLAG_TYPE_GREED                = 0x04,
      *     ROLL_FLAG_TYPE_DISENCHANT           = 0x08,
-     * 
+     *
      *     ROLL_ALL_TYPE_NO_DISENCHANT         = 0x07,
      *     ROLL_ALL_TYPE_MASK                  = 0x0F
      * };

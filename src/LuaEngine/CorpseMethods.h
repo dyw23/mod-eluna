@@ -1,5 +1,5 @@
 /*
-* Copyright (C) 2010 - 2016 Eluna Lua Engine <http://emudevs.com/>
+* Copyright (C) 2010 - 2024 Eluna Lua Engine <http://emudevs.com/>
 * This program is free software licensed under GPL version 3
 * Please see the included DOCS/LICENSE.md for more information
 */
@@ -21,11 +21,7 @@ namespace LuaCorpse
      */
     int GetOwnerGUID(lua_State* L, Corpse* corpse)
     {
-#if defined TRINITY || AZEROTHCORE
         Eluna::Push(L, corpse->GetOwnerGUID());
-#else
-        Eluna::Push(L, corpse->GetOwnerGuid());
-#endif
         return 1;
     }
 

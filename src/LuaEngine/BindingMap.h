@@ -1,5 +1,5 @@
 /*
-* Copyright (C) 2010 - 2016 Eluna Lua Engine <http://emudevs.com/>
+* Copyright (C) 2010 - 2024 Eluna Lua Engine <http://emudevs.com/>
 * This program is free software licensed under GPL version 3
 * Please see the included DOCS/LICENSE.md for more information
 */
@@ -14,8 +14,8 @@
 
 extern "C"
 {
-#include "lua.h"
-#include "lauxlib.h"
+    #include "lua.h"
+    #include "lauxlib.h"
 };
 
 
@@ -279,7 +279,7 @@ public:
     {
         return std::hash<typename std::underlying_type<T>::type>()(t);
     }
-    
+
     template <typename T, typename std::enable_if<!std::is_enum<T>::value>::type* = nullptr>
     static inline result_type hash(T const & t)
     {
