@@ -389,6 +389,7 @@ ElunaRegister<Unit> UnitMethods[] =
     { "IsOnVehicle", &LuaUnit::IsOnVehicle },
 
     // Other
+    {"HandleStatModifier", &LuaUnit::HandleStatModifier},
     { "AddAura", &LuaUnit::AddAura },
     { "RemoveAura", &LuaUnit::RemoveAura },
     { "RemoveAllAuras", &LuaUnit::RemoveAllAuras },
@@ -456,6 +457,7 @@ ElunaRegister<Player> PlayerMethods[] =
     { "GetGuild", &LuaPlayer::GetGuild },
     { "GetAccountId", &LuaPlayer::GetAccountId },
     { "GetAccountName", &LuaPlayer::GetAccountName },
+    { "GetCompletedQuestsCount", &LuaPlayer::GetCompletedQuestsCount },
     { "GetArenaPoints", &LuaPlayer::GetArenaPoints },
     { "GetHonorPoints", &LuaPlayer::GetHonorPoints },
     { "GetLifetimeKills", &LuaPlayer::GetLifetimeKills },
@@ -473,6 +475,8 @@ ElunaRegister<Player> PlayerMethods[] =
     { "GetChatTag", &LuaPlayer::GetChatTag },
     { "GetRestBonus", &LuaPlayer::GetRestBonus },
     { "GetPhaseMaskForSpawn", &LuaPlayer::GetPhaseMaskForSpawn },
+    { "GetAchievementPoints", &LuaPlayer::GetAchievementPoints },
+    { "GetCompletedAchievementsCount", &LuaPlayer::GetCompletedAchievementsCount },
     { "GetReqKillOrCastCurrentCount", &LuaPlayer::GetReqKillOrCastCurrentCount },
     { "GetQuestStatus", &LuaPlayer::GetQuestStatus },
     { "GetInGameTime", &LuaPlayer::GetInGameTime },
@@ -528,6 +532,7 @@ ElunaRegister<Player> PlayerMethods[] =
     { "SetBindPoint", &LuaPlayer::SetBindPoint },
     { "SetArenaPoints", &LuaPlayer::SetArenaPoints },
     { "SetHonorPoints", &LuaPlayer::SetHonorPoints },
+    { "SetSpellPower", &LuaPlayer::SetSpellPower },
     { "SetLifetimeKills", &LuaPlayer::SetLifetimeKills },
     { "SetGameMaster", &LuaPlayer::SetGameMaster },
     { "SetGMChat", &LuaPlayer::SetGMChat },
@@ -550,6 +555,10 @@ ElunaRegister<Player> PlayerMethods[] =
     { "SetSheath", &LuaPlayer::SetSheath },
 
     // Boolean
+    { "HasTankSpec", &LuaPlayer::HasTankSpec },
+    { "HasMeleeSpec", &LuaPlayer::HasMeleeSpec },
+    { "HasCasterSpec", &LuaPlayer::HasCasterSpec },
+    { "HasHealSpec", &LuaPlayer::HasHealSpec },
     { "IsInGroup", &LuaPlayer::IsInGroup },
     { "IsInGuild", &LuaPlayer::IsInGuild },
     { "IsGM", &LuaPlayer::IsGM },
