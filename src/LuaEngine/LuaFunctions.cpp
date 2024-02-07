@@ -401,7 +401,7 @@ ElunaRegister<Unit> UnitMethods[] =
 #endif
 
     // Other
-    { "ModImmunityMask", &LuaUnit::ModImmunityMask },
+    { "SetImmuneTo", &LuaUnit::SetImmuneTo },
     { "HandleStatModifier", &LuaUnit::HandleStatModifier },
     { "AddAura", &LuaUnit::AddAura },
     { "RemoveAura", &LuaUnit::RemoveAura },
