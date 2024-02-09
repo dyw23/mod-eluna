@@ -55,7 +55,7 @@ namespace LuaUnit
     */
     int SetImmuneTo(lua_State* L, Unit* unit)
     {
-        int32 immunity = Eluna::CHECKVAL<int32>(L, 2, true);
+        int32 immunity = Eluna::CHECKVAL<int32>(L, 2);
         bool apply = Eluna::CHECKVAL<bool>(L, 3, true);
 
         unit->ApplySpellImmune(0, 5, immunity, apply);
