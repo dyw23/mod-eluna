@@ -61,6 +61,7 @@ namespace LuaUnit
         unit->ApplySpellImmune(0, 5, immunity, apply);
         return 0;
     }
+    
     /**
      * The [Unit] modifies a specific stat
      *
