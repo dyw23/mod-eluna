@@ -1646,6 +1646,20 @@ namespace LuaPlayer
     }
 
     /**
+    * Get the `glyphId` form the [Player]'s specified glyph `slotIndex` at current talent
+    *
+    * @param uint8 slotIndex
+    *
+    * @return uint32 glyphId
+    */
+    int GetGlyph(lua_State* L, Player* player)
+    {
+        uint8 slot = Eluna::CHECKVAL<uint8>(L, 2);
+        Eluna::Push(L, player->GetGlyph(slot));
+        return 1;
+    }
+
+    /**
      * Returns the [Player]s current [Guild] ID
      *
      * @return uint32 guildId
