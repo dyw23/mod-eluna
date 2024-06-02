@@ -3956,6 +3956,7 @@ namespace LuaPlayer
     /**
     * Get glyphId off glyph slot specified by `slotIndex` off the [Player]'s current talent specialization.`
     * @param uint32 slotIndex
+    * @return glyphId off the glyph in the selected glyphSlot or 0 in case the glyph slot is empty
     */
     int GetGlyph(lua_State* L, Player* player)
     {
