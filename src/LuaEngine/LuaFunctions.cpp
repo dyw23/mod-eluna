@@ -708,6 +708,7 @@ ElunaRegister<Player> PlayerMethods[] =
 
     { "RunCommand", &LuaPlayer::RunCommand },
     { "SetGlyph", &LuaPlayer::SetGlyph },
+    { "GetGlyph", &LuaPlayer::GetGlyph },
 #if !defined(CLASSIC)
     { "RemoveArenaSpellCooldowns", &LuaPlayer::RemoveArenaSpellCooldowns },
 #endif
