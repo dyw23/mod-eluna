@@ -4012,7 +4012,7 @@ namespace LuaPlayer
             player->PlayerTalkClass->GetGossipMenu().AddMenuItem(-1, _icon, msg, _sender, _intid, _promptMsg, _money,
                                                                  _code);
         } else {
-            return luaL_error(L, "GossipMenuItem not added. Reached Max amount of possible GossipMenuItems.");
+            return luaL_error(L, "GossipMenuItem not added. Reached Max amount of possible GossipMenuItems in this GossipMenu");
         }
 #else
 #ifndef CLASSIC
