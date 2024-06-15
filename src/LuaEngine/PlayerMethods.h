@@ -8,6 +8,7 @@
 #define PLAYERMETHODS_H
 
 #include "GameTime.h"
+#include "GossipDef.h"
 
 /***
  * Inherits all methods from: [Object], [WorldObject], [Unit]
