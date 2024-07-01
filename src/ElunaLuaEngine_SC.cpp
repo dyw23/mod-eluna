@@ -237,9 +237,9 @@ class Eluna_AllMapScript : public AllMapScript
 public:
     Eluna_AllMapScript() : AllMapScript("Eluna_AllMapScript") { }
 
-    void OnBeforeCreateInstanceScript(InstanceMap* instanceMap, InstanceScript* instanceData, bool /*load*/, std::string /*data*/, uint32 /*completedEncounterMask*/) override
+    void OnBeforeCreateInstanceScript(InstanceMap* instanceMap, InstanceScript** instanceData, bool /*load*/, std::string /*data*/, uint32 /*completedEncounterMask*/) override
     {
-        instanceData = sEluna->GetInstanceData(instanceMap);
+        *instanceData = sEluna->GetInstanceData(instanceMap);
     }
 
     void OnDestroyInstance(MapInstanced* /*mapInstanced*/, Map* map) override
