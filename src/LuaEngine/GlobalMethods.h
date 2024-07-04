@@ -2159,7 +2159,9 @@ namespace LuaGlobalFunctions
         const int BAN_CHARACTER = 1;
         const int BAN_IP = 2;
 
+#ifndef AZEROTHCORE
         BanMode mode = BanMode::BAN_ACCOUNT;
+#endif
 
         switch (banMode)
         {
@@ -2171,17 +2173,23 @@ namespace LuaGlobalFunctions
                 if (!AccountMgr::normalizeString(nameOrIP))
                     return luaL_argerror(L, 2, "invalid account name");
 #endif
+#ifndef AZEROTHCORE
                 mode = BanMode::BAN_ACCOUNT;
+#endif
                 break;
             case BAN_CHARACTER:
                 if (!normalizePlayerName(nameOrIP))
                     return luaL_argerror(L, 2, "invalid character name");
+#ifndef AZEROTHCORE
                 mode = BanMode::BAN_CHARACTER;
+#endif
                 break;
             case BAN_IP:
                 if (!IsIPAddress(nameOrIP.c_str()))
                     return luaL_argerror(L, 2, "invalid ip");
+#ifndef AZEROTHCORE
                 mode = BanMode::BAN_IP;
+#endif
                 break;
             default:
                 return luaL_argerror(L, 1, "unknown banmode");
