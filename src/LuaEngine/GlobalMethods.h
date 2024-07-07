@@ -2160,6 +2160,7 @@ namespace LuaGlobalFunctions
         const int BAN_IP = 2;
 
         BanMode mode = BanMode::BAN_ACCOUNT;
+        (void)mode; // ensure that the variable is referenced in order to pass compiler checks
 
         switch (banMode)
         {
