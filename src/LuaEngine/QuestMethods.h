@@ -52,10 +52,15 @@ namespace LuaQuest
     int HasFlag(lua_State* L, Quest* quest)
     {
         uint32 flag = Eluna::CHECKVAL<uint32>(L, 2);
+#if defined TRINITY || AZEROTHCORE
         Eluna::Push(L, quest->HasFlag(flag));
+#else
+        Eluna::Push(L, quest->HasQuestFlag((QuestFlags)flag));
+#endif
         return 1;
     }
 
+#ifndef CLASSIC
     /**
      * Returns 'true' if the [Quest] is a daily quest, false otherwise.
      *
@@ -66,6 +71,7 @@ namespace LuaQuest
         Eluna::Push(L, quest->IsDaily());
         return 1;
     }
+#endif
 
     /**
      * Returns 'true' if the [Quest] is repeatable, false otherwise.
@@ -151,7 +157,11 @@ namespace LuaQuest
      */
     int GetFlags(lua_State* L, Quest* quest)
     {
+#if defined TRINITY || AZEROTHCORE
         Eluna::Push(L, quest->GetFlags());
+#else
+        Eluna::Push(L, quest->GetQuestFlags());
+#endif
         return 1;
     }
 

@@ -17,6 +17,7 @@
 namespace LuaMap
 {
 
+#ifndef CLASSIC
     /**
      * Returns `true` if the [Map] is an arena [BattleGround], `false` otherwise.
      *
@@ -27,6 +28,7 @@ namespace LuaMap
         Eluna::Push(L, map->IsBattleArena());
         return 1;
     }
+#endif
 
     /**
      * Returns `true` if the [Map] is a non-arena [BattleGround], `false` otherwise.
@@ -35,7 +37,11 @@ namespace LuaMap
      */
     int IsBattleground(lua_State* L, Map* map)
     {
+#if defined TRINITY || AZEROTHCORE
         Eluna::Push(L, map->IsBattleground());
+#else
+        Eluna::Push(L, map->IsBattleGround());
+#endif
         return 1;
     }
 
@@ -61,6 +67,7 @@ namespace LuaMap
         return 1;
     }
 
+#ifndef CLASSIC
     /**
      * Returns `true` if the [Map] is a heroic, `false` otherwise.
      *
@@ -71,6 +78,7 @@ namespace LuaMap
         Eluna::Push(L, map->IsHeroic());
         return 1;
     }
+#endif
 
     /**
      * Returns `true` if the [Map] is a raid, `false` otherwise.
@@ -107,8 +115,12 @@ namespace LuaMap
     {
         float x = Eluna::CHECKVAL<float>(L, 2);
         float y = Eluna::CHECKVAL<float>(L, 3);
+#if (defined(TBC) || defined(CLASSIC))
+        float z = map->GetHeight(x, y, MAX_HEIGHT);
+#else
         uint32 phasemask = Eluna::CHECKVAL<uint32>(L, 4, 1);
         float z = map->GetHeight(phasemask, x, y, MAX_HEIGHT);
+#endif
         if (z != INVALID_HEIGHT)
             Eluna::Push(L, z);
         return 1;
@@ -123,7 +135,11 @@ namespace LuaMap
      */
     int GetDifficulty(lua_State* L, Map* map)
     {
+#ifndef CLASSIC
         Eluna::Push(L, map->GetDifficulty());
+#else
+        Eluna::Push(L, (Difficulty)0);
+#endif
         return 1;
     }
 
@@ -174,9 +190,13 @@ namespace LuaMap
         float x = Eluna::CHECKVAL<float>(L, 2);
         float y = Eluna::CHECKVAL<float>(L, 3);
         float z = Eluna::CHECKVAL<float>(L, 4);
+#if defined TRINITY || defined AZEROTHCORE
         float phasemask = Eluna::CHECKVAL<uint32>(L, 5, PHASEMASK_NORMAL);
 
         Eluna::Push(L, map->GetAreaId(phasemask, x, y, z));
+#else
+        Eluna::Push(L, map->GetTerrain()->GetAreaId(x, y, z));
+#endif
         return 1;
     }
 
@@ -190,6 +210,7 @@ namespace LuaMap
     {
         ObjectGuid guid = Eluna::CHECKVAL<ObjectGuid>(L, 2);
 
+#if defined TRINITY || AZEROTHCORE
         switch (guid.GetHigh())
         {
             case HIGHGUID_PLAYER:
@@ -216,7 +237,9 @@ namespace LuaMap
             default:
                 break;
         }
-
+#else
+        Eluna::Push(L, map->GetWorldObject(guid));
+#endif
         return 1;
     }
 
@@ -244,12 +267,19 @@ namespace LuaMap
         uint32 weatherType = Eluna::CHECKVAL<uint32>(L, 3);
         float grade = Eluna::CHECKVAL<float>(L, 4);
 
+#if defined TRINITY
+        if (Weather * weather = map->GetOrGenerateZoneDefaultWeather(zoneId))
+            weather->SetWeather((WeatherType)weatherType, grade);
+#elif defined AZEROTHCORE
         Weather* weather = WeatherMgr::FindWeather(zoneId);
         if (!weather)
             weather = WeatherMgr::AddWeather(zoneId);
         if (weather)
             weather->SetWeather((WeatherType)weatherType, grade);
-
+#else
+        if (Weather::IsValidWeatherType(weatherType))
+            map->SetWeather(zoneId, (WeatherType)weatherType, grade, false);
+#endif
         return 0;
     }
 
@@ -263,9 +293,13 @@ namespace LuaMap
      */
     int GetInstanceData(lua_State* L, Map* map)
     {
+#if defined TRINITY || AZEROTHCORE
         ElunaInstanceAI* iAI = NULL;
         if (InstanceMap* inst = map->ToInstanceMap())
             iAI = dynamic_cast<ElunaInstanceAI*>(inst->GetInstanceScript());
+#else
+        ElunaInstanceAI* iAI = dynamic_cast<ElunaInstanceAI*>(map->GetInstanceData());
+#endif
 
         if (iAI)
             Eluna::GetEluna(L)->PushInstanceData(L, iAI, false);
@@ -280,9 +314,13 @@ namespace LuaMap
      */
     int SaveInstanceData(lua_State* /*L*/, Map* map)
     {
+#if defined TRINITY || AZEROTHCORE
         ElunaInstanceAI* iAI = NULL;
         if (InstanceMap* inst = map->ToInstanceMap())
             iAI = dynamic_cast<ElunaInstanceAI*>(inst->GetInstanceScript());
+#else
+        ElunaInstanceAI* iAI = dynamic_cast<ElunaInstanceAI*>(map->GetInstanceData());
+#endif
 
         if (iAI)
             iAI->SaveToDB();
@@ -314,7 +352,11 @@ namespace LuaMap
         Map::PlayerList const& players = map->GetPlayers();
         for (Map::PlayerList::const_iterator itr = players.begin(); itr != players.end(); ++itr)
         {
+#if defined TRINITY || AZEROTHCORE
             Player* player = itr->GetSource();
+#else
+            Player* player = itr->getSource();
+#endif
             if (!player)
                 continue;
             if (player->GetSession() && (team >= TEAM_NEUTRAL || player->GetTeamId() == team))
