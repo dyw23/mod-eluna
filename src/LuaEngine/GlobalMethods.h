@@ -2162,8 +2162,13 @@ namespace LuaGlobalFunctions
         switch (banMode)
         {
             case BAN_ACCOUNT:
+#if defined TRINITY || AZEROTHCORE
                 if (!Utf8ToUpperOnlyLatin(nameOrIP))
                     return luaL_argerror(L, 2, "invalid account name");
+#else
+                if (!AccountMgr::normalizeString(nameOrIP))
+                    return luaL_argerror(L, 2, "invalid account name");
+#endif
                 break;
             case BAN_CHARACTER:
                 if (!normalizePlayerName(nameOrIP))
@@ -2202,9 +2207,15 @@ namespace LuaGlobalFunctions
         case BanReturn::BAN_NOTFOUND:
             Eluna::Push(L, 2);
             break;
+#ifdef AZEROTHCORE
         case BanReturn::BAN_LONGER_EXISTS:
             Eluna::Push(L, 3);
             break;
+#elif TRINITY
+        case BanReturn::BAN_EXISTS:
+            Eluna::Push(L, 3);
+            break;
+#endif
         }
         return 1;
     }
