@@ -7,6 +7,7 @@
 #ifndef PLAYERMETHODS_H
 #define PLAYERMETHODS_H
 
+#include "Chat.h"
 #include "GameTime.h"
 #include "GossipDef.h"
 
