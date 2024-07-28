@@ -3803,7 +3803,7 @@ namespace LuaPlayer
     {
         std::string msg = Eluna::CHECKVAL<std::string>(L, 2);
         if (msg.length() > 0)
-            player->GetSession()->SendNotification("%s", msg.c_str());
+            ChatHandler(player->GetSession()).SendNotification("{}", msg);
         return 0;
     }
 
